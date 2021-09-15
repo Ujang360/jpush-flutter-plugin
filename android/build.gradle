@@ -3,7 +3,6 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
-        mavenCentral()
         google()
         jcenter()
     }
@@ -15,7 +14,6 @@ buildscript {
 
 rootProject.allprojects {
     repositories {
-        mavenCentral()
         google()
         jcenter()
     }
@@ -27,14 +25,35 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 21
     }
     lintOptions {
-        disable 'InvalidPackage'
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
 
 dependencies {
-    implementation 'cn.jiguang.sdk:jpush:4.0.9'
-    implementation 'cn.jiguang.sdk:jcore:2.8.2'
+    implementation fileTree(include: ['*.jar',"*.aar"], dir: 'libs')
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'org.conscrypt:conscrypt-android:2.2.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.hjq:toast:8.8'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    implementation 'com.tencent:mmkv-static:1.2.4'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
