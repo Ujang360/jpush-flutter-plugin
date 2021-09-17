@@ -22,6 +22,9 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
+
+        <!-- since 3.5.6 新增华硕通道 -->
+        <receiver android:name="cn.jpush.android.asus.AsusPushMessageReceiver" android:exported="false"/>
         <!-- Since JCore2.0.0 Required SDK核心功能-->
         <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
         <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
@@ -58,7 +61,7 @@
 
                 <action android:name="cn.jpush.android.ui.PopWinActivity" />
 
-                <category android:name="${JPUSH_PKGNAME}" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </activity>
     </application>
