@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     jpush.setup(
-      appKey: "dfa60080aa05c5c7b7dc7aa0", //你自己应用的 AppKey
+      appKey: "140fe1da9e70b26281e", //你自己应用的 AppKey
       channel: "theChannel",
       production: false,
       debug: true,
@@ -69,8 +69,6 @@ class _MyAppState extends State<MyApp> {
         debugLable = "flutter getRegistrationID: $rid";
       });
     });
-
-    jpush.setAlias("测试");
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
